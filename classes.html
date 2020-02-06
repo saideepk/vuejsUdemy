@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Vue App</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      margin: 10px;
+      border: 1px solid green;
+    }
+
+    .red {
+      background-color: red;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="app">
+    <div class="box" @click="attachRed = !attachRed" :class={red:attachRed}></div>
+    <div class="box" :style="{backgroundColor:color}"></div>
+    <div class="box" :style="[setStyle,{height:width+'px'}]"></div>
+    {{attachRed}}
+    <hr>
+    <input type="text" v-model="color" />
+    <input type="text" v-model="width" />
+  </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      attachRed: false,
+      color: "red",
+      width: 100
+    },
+    computed: {
+      setStyle() {
+        var that = this;
+        return {
+          backgroundColor: this.color,
+          width: this.width + "px"
+        }
+      }
+    }
+  });
+
+</script>
+
+</html>

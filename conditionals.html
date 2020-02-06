@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Vue App</title>
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <div id="app">
+    <p v-if="someVal === 'a'">You see me !! <span>A</span></p>
+    <p v-else-if="someVal === 'b'">Now You see me !! <span>B</span></p>
+    <p v-else-if="someVal === 'c'">Now You see me too!! <span>C</span></p>
+
+    <p v-else>No options left</p>
+
+    <input type="text" v-model="someVal" />
+
+    <template v-if="someVal === 'b'">
+      <h1>Helloooo</h1>
+      <b>Doctor</b>
+    </template>
+
+    <template v-if="someVal === 'c'">
+      <h1>Helloxooo</h1>
+      <b>Doctor</b>
+    </template>
+
+    <p v-show="someVal === 'x'">Using v-show</p>
+
+
+  </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+  const cloneData = {
+    someVal: "a"
+  };
+  var a1 = new Vue({
+    el: "#app",
+    data: cloneData,
+    methods: {
+
+    }
+  });
+
+  console.log(a1, a1.$data.someVal)
+
+</script>
+
+</html>

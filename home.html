@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Vue App</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3 v-once>{{name}}</h3>
+    <input type="text" v-on:input="changeInput" />
+    <!-- alt is @input -->
+    <p>{{sayHello()}}, <a v-bind:href="link">Link1</a></p>
+    <!-- alt is :href-->
+    <p v-html="markup"></p>
+
+    <b>Counter : {{ counter }} </b>
+    <button @click="counterIt(2,$event)">Add</button>
+    <p>{{counter > 10 ? "Greater than 10" : "less than 10" }}</p>
+
+    <p @mousemove="setCoordinates">
+      Co-ordinates : {{x}} / {{y}} <span @mousemove.stop>Dead Spot</span>
+    </p>
+
+    <h3>Two way Data Binding</h3>
+    <input type="text" v-model="name2" /> {{name2}}
+
+    <h3>Counters {{ counter2 }}</h3>
+    <button v-on:click="counter2++">Increase +</button>
+    <button v-on:click="counter2--">Decrease -</button>
+    {{counterOutput}}
+  </div>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/vueScript.js"></script>
+
+</html>

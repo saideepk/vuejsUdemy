@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Vue App</title>
+  <style>
+    .mystyle {
+      color: red;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+  <div id="app">
+    <h1>{{title}}</h1>
+
+    <button @click="title='Hey'">Button</button>
+    <button @click="destroy">Destroy</button>
+
+  </div>
+
+
+</body>
+<script src="js/vue.js"></script>
+<script>
+
+  //$refs example
+  var a1 = new Vue({
+    el: "#app",
+    data: {
+      title: "Hello World"
+    },
+
+    beforeCreate() {
+      console.log("Before create called")
+    },
+    created() {
+      console.log("Vue Instance created")
+    },
+    beforeMount() {
+      console.log("Vue instance beforeMounting")
+    },
+    mounted() {
+      console.log("Vue Mounted")
+    },
+    beforeUpdate() {
+      console.log("BeforeUpdate called")
+    },
+    updated() {
+      console.log("Updated created");
+    },
+    beforeDestroy() {
+      console.log("beforeDestroy Called");
+    },
+    destroyed() {
+      console.log("destroyed Called");
+    },
+    methods: {
+      destroy() {
+        this.$destroy();
+      }
+    },
+
+  });
+</script>
+
+</html>
